@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../node_modules/lena-melo-design-tokens/build/css/tokens.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../node_modules/lena-melo-design-tokens/build/css/font-face.css"
+    />
+    <style>
+      body {
+        font-family: var(--asset-font-regular-name);
+        font-weight: var(--asset-font-regular-weight);
+        color: var(--color-primary-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render } from 'lit';
+      import '../dist/src/ds-lena-melo.js';
+
+      const title = 'Hello owc World!';
+      render(
+        html` <ds-lena-melo .title=${title}> some light-dom </ds-lena-melo> `,
+        document.querySelector('#demo')
+      );
+    </script>
+  </body>
+</html>
