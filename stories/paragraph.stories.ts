@@ -1,49 +1,28 @@
-import { html, TemplateResult } from 'lit';
-import '../src/Paragraph/ds-paragraph';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import '../src/Paragraph';
+import * as Types from '../src/types';
+import { Story } from './types';
 
 export default {
   title: 'Paragraph',
   component: 'ds-paragraph',
-  // argTypes: {
-  //   title: { control: 'text' },
-  //   counter: { control: 'number' },
-  //   textColor: { control: 'color' },
-  // },
+  argTypes: {
+    size: { control: { type: 'select', options: Object.values(Types.Size) } },
+  },
 };
-
-interface Story<T> {
-  (args: T): TemplateResult;
-  args?: Partial<T>;
-  argTypes?: Record<string, unknown>;
-}
 
 interface ArgTypes {
-  title?: string;
-  counter?: number;
-  textColor?: string;
-  slot?: TemplateResult;
+  size?: Types.Size;
 }
 
-const Template: Story<ArgTypes> = ({ slot }: ArgTypes) => html`
-  <ds-paragraph>${slot}</ds-paragraph>
+const Template: Story<ArgTypes> = ({ size }: ArgTypes) => html`
+  <ds-paragraph size=${ifDefined(size)}> Paragraph component </ds-paragraph>
 `;
 
-// export const Regular = Template.bind({});
+export const Default = Template.bind({});
 
-// export const CustomTitle = Template.bind({});
-// CustomTitle.args = {
-//   title: 'My title',
-// };
-
-// export const CustomCounter = Template.bind({});
-// CustomCounter.args = {
-//   counter: 123456,
-// };
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`Slotted Paragraph`,
+export const Size = Template.bind({});
+Size.args = {
+  size: Types.Size.Large,
 };
-// SlottedContent.argTypes = {
-//   slot: { table: { disable: true } },
-// };

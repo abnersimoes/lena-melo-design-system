@@ -1,20 +1,18 @@
-import { html, css, LitElement } from 'lit';
-// import { property } from 'lit/decorators.js';
+import { html, LitElement } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
+import styles from './styles';
+import * as Types from '../types';
 
+@customElement('ds-paragraph')
 export class Paragraph extends LitElement {
-  static styles = css`
-    :host {
-      display: block;
-    }
+  static styles = styles;
 
-    p {
-      color: pink;
-    }
-  `;
+  @property({ type: Types.Size })
+  size = Types.Size.Medium;
 
   render() {
     return html`
-      <p>
+      <p class=${this.size}>
         <slot></slot>
       </p>
     `;

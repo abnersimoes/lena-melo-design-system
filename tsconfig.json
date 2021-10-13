@@ -15,7 +15,15 @@
     "inlineSources": true,
     "rootDir": "./",
     "declaration": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "rules": {
+          "no-incompatible-property-type": "off"
+        }
+      }
+    ]
   },
   "include": ["**/*.ts"]
 }
