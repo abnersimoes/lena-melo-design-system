@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { fixture, expect, assert } from '@open-wc/testing';
-import { Paragraph } from '../src/Paragraph';
+import { Paragraph } from '../ds-paragraph';
 
 describe('Paragraph', () => {
   it('should be defined and passes the a11y audit', async () => {
