@@ -25,14 +25,10 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import '../dist/src/Paragraph/ds-paragraph';
+      import '../dist/src/Heading/ds-heading';
 
       render(
-        html`
-          <ds-paragraph size="small">some light-dom small</ds-paragraph>
-          <ds-paragraph>some light-dom medium (default)</ds-paragraph>
-          <ds-paragraph size="large">some light-dom large</ds-paragraph>
-        `,
+        html` <ds-heading priority="h2">some light-dom small</ds-heading> `,
         document.querySelector('#demo')
       );
     </script>
