@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '../src/Paragraph/ds-paragraph';
-import * as Types from '../src/types';
-import { Story } from './types';
+import { Story } from '../../stories/types';
+import * as Types from '../types';
+import './ds-paragraph';
 
 export default {
   title: 'Paragraph',
