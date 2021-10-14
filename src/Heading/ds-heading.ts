@@ -14,14 +14,17 @@ export class Heading extends LitElement {
   size = Types.Size.Medium;
 
   @property({ type: Types.HeadingPriority })
-  priority = Types.HeadingPriority.span;
+  priority = Types.HeadingPriority.default;
 
-  getTagName() {
-    return this.priority;
+  getTag() {
+    if (this.priority && this.priority > 0 && this.priority < 7) {
+      return `h${this.priority}`;
+    }
+    return Types.HeadingPriority.default;
   }
 
   render() {
-    const tag = this.getTagName();
+    const tag = this.getTag();
 
     return html`
       <${unsafeStatic(tag)} class=${this.size}>
