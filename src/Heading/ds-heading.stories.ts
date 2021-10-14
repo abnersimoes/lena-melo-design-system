@@ -5,7 +5,7 @@ import * as Types from '../types';
 import './ds-heading';
 
 export default {
-  title: 'Core Components/Typograph/Heading',
+  title: 'Components/Typograph/Heading',
   component: 'ds-heading',
   argTypes: {
     size: { control: { type: 'select', options: Object.values(Types.Size) } },
@@ -26,3 +26,6 @@ const Template: Story<ArgTypes> = ({ size, priority }: ArgTypes) => html`
 `;
 
 export const Heading = Template.bind({});
+Heading.args = {
+  size: Types.Size.Large,
+};
