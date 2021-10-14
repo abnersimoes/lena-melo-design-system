@@ -3,6 +3,7 @@
 import { LitElement } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { customElement, property } from 'lit/decorators.js';
+import clsx from 'clsx';
 import * as Types from '../types';
 import styles from './styles';
 
@@ -27,7 +28,7 @@ export class Heading extends LitElement {
     const tag = this.getTag();
 
     return html`
-      <${unsafeStatic(tag)} class=${this.size}>
+      <${unsafeStatic(tag)} class=${clsx([this.size])}>
         <slot></slot>
       </${unsafeStatic(tag)}>
     `;

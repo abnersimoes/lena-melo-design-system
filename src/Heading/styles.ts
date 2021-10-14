@@ -5,21 +5,26 @@ export default css`
     display: block;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span {
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+  }
+
   .small {
-    font-size: var(--size-font-xs);
-    margin-bottom: var(--size-spacing-outset-xxs);
-    font-weight: var(--asset-font-bold-weight);
+    font-size: var(--font-size-xs);
   }
 
   .medium {
-    font-size: var(--size-font-md);
-    margin-bottom: var(--size-spacing-outset-xs);
-    font-weight: var(--asset-font-regular-weight);
+    font-size: var(--font-size-md);
   }
 
   .large {
-    font-size: var(--size-font-xl);
-    margin-bottom: var(--size-spacing-outset-sm);
-    font-weight: var(--asset-font-light-weight);
+    font-size: var(--font-size-xl);
   }
 `;

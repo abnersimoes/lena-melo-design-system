@@ -6,21 +6,19 @@ export default css`
   }
 
   p {
-    font-weight: var(--asset-font-light-weight);
+    font-weight: var(--font-weight-light);
+    margin: 0;
   }
 
   .small {
-    font-size: var(--size-font-xxxs);
-    margin-bottom: var(--size-spacing-outset-xxxs);
+    font-size: var(--font-size-xxxs);
   }
 
   .medium {
-    font-size: var(--size-font-xs);
-    margin-bottom: var(--size-spacing-outset-xxs);
+    font-size: var(--font-size-xs);
   }
 
   .large {
-    font-size: var(--size-font-sm);
-    margin-bottom: var(--size-spacing-outset-xs);
+    font-size: var(--font-size-sm);
   }
 `;

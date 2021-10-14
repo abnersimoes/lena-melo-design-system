@@ -4,6 +4,12 @@ export enum Size {
   Large = 'large',
 }
 
+export enum Weight {
+  Light = 'light',
+  Regular = 'regular',
+  Bold = 'bold',
+}
+
 export enum HeadingPriority {
   h1 = 1,
   h2 = 2,

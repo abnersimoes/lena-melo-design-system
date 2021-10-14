@@ -5,7 +5,7 @@ import * as Types from '../types';
 import './ds-paragraph';
 
 export default {
-  title: 'Paragraph',
+  title: 'Core Components/Typograph/Paragraph',
   component: 'ds-paragraph',
   argTypes: {
     size: { control: { type: 'select', options: Object.values(Types.Size) } },
@@ -20,9 +20,4 @@ const Template: Story<ArgTypes> = ({ size }: ArgTypes) => html`
   <ds-paragraph size=${ifDefined(size)}> Paragraph component </ds-paragraph>
 `;
 
-export const Default = Template.bind({});
-
-export const Size = Template.bind({});
-Size.args = {
-  size: Types.Size.Large,
-};
+export const Paragraph = Template.bind({});
