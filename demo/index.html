@@ -27,10 +27,16 @@
 
     <script type="module">
       import { html, render } from 'lit';
-      import '../dist/src/Heading/ds-heading';
+      import '../dist/src/Button/ds-button';
+
+      const foo = 'bar';
 
       render(
-        html` <ds-heading priority="2">some light-dom small</ds-heading> `,
+        html`
+          <ds-button @on-click=${() => console.log(foo)}
+            >some light-dom small</ds-button
+          >
+        `,
         document.querySelector('#demo')
       );
     </script>

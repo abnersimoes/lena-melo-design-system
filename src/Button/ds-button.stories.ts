@@ -8,18 +8,44 @@ export default {
   title: 'Components/Button',
   component: 'ds-button',
   argTypes: {
-    size: { control: { type: 'select', options: Object.values(Types.Size) } },
-    outline: { control: { type: 'boolean' } },
+    onClick: {
+      table: { category: 'Events' },
+      name: '@on-click',
+      type: { required: false },
+      control: { disable: true },
+      action: '@on-click',
+      description: 'Defines the callback function',
+    },
+    size: {
+      table: { category: 'Appearance' },
+      control: { type: 'radio' },
+      options: Object.values(Types.Size),
+      defaultValue: Types.Size.Medium,
+      description: 'Defines the size of the button',
+    },
+    outline: {
+      table: { category: 'Appearance' },
+      control: { type: 'boolean' },
+      defaultValue: false,
+      description: 'Defines the button has a border or a fill',
+    },
   },
 };
 
 interface ArgTypes {
   size?: Types.Size;
   outline: boolean;
+  onClick: Function;
 }
 
-const Template: Story<ArgTypes> = ({ size, outline }: ArgTypes) => html`
-  <ds-button size=${ifDefined(size)} ?outline=${outline}>Button a</ds-button>
+const Template: Story<ArgTypes> = ({
+  size,
+  outline,
+  onClick,
+}: ArgTypes) => html`
+  <ds-button @on-click=${onClick} size=${ifDefined(size)} ?outline=${outline}
+    >Button</ds-button
+  >
 `;
 
 export const Paragraph = Template.bind({});

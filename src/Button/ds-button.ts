@@ -14,9 +14,17 @@ export class Button extends LitElement {
 
   render() {
     return html`
-      <button class=${clsx(this.size, { outline: this.outline })}>
+      <button
+        @click="${this._handleClick}"
+        class=${clsx(this.size, { outline: this.outline })}
+      >
         <slot></slot>
       </button>
     `;
+  }
+
+  _handleClick() {
+    const event = new Event('on-click');
+    this.dispatchEvent(event);
   }
 }
