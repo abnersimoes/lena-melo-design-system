@@ -48,7 +48,7 @@ const Template: Story<ArgTypes> = ({
   >
 `;
 
-export const Paragraph = Template.bind({});
-Paragraph.args = {
+export const Button = Template.bind({});
+Button.args = {
   size: Types.Size.Medium,
 };

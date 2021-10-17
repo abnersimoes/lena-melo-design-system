@@ -8,7 +8,12 @@ export default {
   title: 'Components/Typograph/Paragraph',
   component: 'ds-paragraph',
   argTypes: {
-    size: { control: { type: 'select', options: Object.values(Types.Size) } },
+    size: {
+      table: { category: 'Appearance' },
+      description: 'Defines the size of paragraph',
+      control: { type: 'select', options: Object.values(Types.Size) },
+      defaultValue: Types.Size.Medium,
+    },
   },
 };
 
