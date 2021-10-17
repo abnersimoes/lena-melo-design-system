@@ -25,15 +25,16 @@ describe('Button', () => {
     expect(component.textContent).to.equal('Foo bar');
   });
 
-  it('should be render a large outline button by properties', async () => {
+  it('should be render a large outline disabled button by properties', async () => {
     const component = await fixture<Button>(
-      html`<ds-button size="large" outline>Foo bar</ds-button>`
+      html`<ds-button size="large" outline disabled>Foo bar</ds-button>`
     );
     const element = component.shadowRoot!.querySelector('button');
 
     expect(component.size).to.equal('large');
     expect(element).to.have.class('large');
     expect(element).to.have.class('outline');
+    expect(element).to.have.property('disabled', true);
   });
 
   it('should be calls _handleClick when a button is clicked', async () => {

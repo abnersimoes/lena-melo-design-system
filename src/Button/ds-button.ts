@@ -12,10 +12,13 @@ export class Button extends LitElement {
 
   @property({ type: Boolean }) outline = false;
 
+  @property({ type: Boolean }) disabled = false;
+
   render() {
     return html`
       <button
         @click="${this._handleClick}"
+        ?disabled=${this.disabled}
         class=${clsx(this.size, { outline: this.outline })}
       >
         <slot></slot>

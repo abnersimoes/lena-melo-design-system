@@ -15,6 +15,12 @@ export default css`
     cursor: pointer;
   }
 
+  button[disabled] {
+    cursor: default;
+    background-color: var(--color-neutral-high-medium);
+    color: var(--color-neutral-low-light);
+  }
+
   .small {
     height: 2rem;
     font-size: var(--font-size-xxs);

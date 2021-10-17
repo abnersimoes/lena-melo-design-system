@@ -29,26 +29,36 @@ export default {
       defaultValue: false,
       description: 'Defines the button has a border or a fill',
     },
+    disabled: {
+      table: { category: 'Semantics' },
+      control: { type: 'boolean' },
+      defaultValue: false,
+      description: 'Defines if the button is disabled',
+    },
   },
 };
 
 interface ArgTypes {
-  size?: Types.Size;
-  outline: boolean;
   onClick: Function;
+  size?: Types.Size;
+  outline?: boolean;
+  disabled?: boolean;
 }
 
 const Template: Story<ArgTypes> = ({
+  onClick,
   size,
   outline,
-  onClick,
+  disabled,
 }: ArgTypes) => html`
-  <ds-button @on-click=${onClick} size=${ifDefined(size)} ?outline=${outline}
-    >Button</ds-button
+  <ds-button
+    @on-click=${onClick}
+    size=${ifDefined(size)}
+    ?outline=${outline}
+    ?disabled=${disabled}
   >
+    Button
+  </ds-button>
 `;
 
 export const Button = Template.bind({});
-Button.args = {
-  size: Types.Size.Medium,
-};

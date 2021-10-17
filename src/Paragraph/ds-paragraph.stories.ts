@@ -11,7 +11,7 @@ export default {
     size: {
       table: { category: 'Appearance' },
       description: 'Defines the size of paragraph',
-      control: { type: 'select', options: Object.values(Types.Size) },
+      control: { type: 'radio', options: Object.values(Types.Size) },
       defaultValue: Types.Size.Medium,
     },
   },
@@ -26,6 +26,3 @@ const Template: Story<ArgTypes> = ({ size }: ArgTypes) => html`
 `;
 
 export const Paragraph = Template.bind({});
-Paragraph.args = {
-  size: Types.Size.Medium,
-};

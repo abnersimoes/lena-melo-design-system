@@ -11,7 +11,7 @@ export default {
     size: {
       table: { category: 'Appearance' },
       description: 'Defines the size of heading',
-      control: { type: 'select', options: Object.values(Types.Size) },
+      control: { type: 'radio', options: Object.values(Types.Size) },
       defaultValue: Types.Size.Medium,
     },
     priority: {
@@ -39,6 +39,3 @@ const Template: Story<ArgTypes> = ({ size, priority }: ArgTypes) => html`
 `;
 
 export const Heading = Template.bind({});
-Heading.args = {
-  size: Types.Size.Large,
-};
