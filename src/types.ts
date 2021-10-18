@@ -1,3 +1,5 @@
+export { IconNames } from './icon.types';
+
 export enum Size {
   Small = 'small',
   Medium = 'medium',

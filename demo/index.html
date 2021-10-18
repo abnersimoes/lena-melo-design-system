@@ -4,15 +4,7 @@
     <meta charset="utf-8" />
     <link
       rel="stylesheet"
-      href="../node_modules/lena-melo-design-tokens/build/css/reset.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../node_modules/lena-melo-design-tokens/build/css/design-tokens.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../node_modules/lena-melo-design-tokens/build/css/font-face.css"
+      href="../node_modules/lena-melo-design-tokens/build/css/styles.css"
     />
     <style>
       body {
@@ -33,9 +25,11 @@
 
       render(
         html`
-          <ds-button @on-click=${() => console.log(foo)}
-            >some light-dom small</ds-button
-          >
+          <ds-button @on-click=${() => console.log(foo)}>
+            some light-dom small
+          </ds-button>
+
+          <span class="material-icons">arrow_back</span>
         `,
         document.querySelector('#demo')
       );
