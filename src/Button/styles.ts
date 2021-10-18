@@ -9,25 +9,11 @@ export default css`
     font-family: var(--asset-font-regular-name);
     font-weight: var(--font-weight-bold);
     border-radius: var(--border-radius-sm);
-    background-color: var(--color-primary-pure);
     border: 0;
-    color: var(--color-neutral-high-light);
     cursor: pointer;
     display: flex;
     align-items: center;
-  }
-
-  button[disabled] {
-    cursor: default;
-    background-color: var(--color-neutral-high-medium);
-    color: var(--color-neutral-low-light);
-    border: none;
-  }
-
-  .outline {
-    background: none;
-    border: var(--border-width-thin) solid var(--color-primary-pure);
-    color: var(--color-primary-pure);
+    transition: all var(--motion-duration-level-little-fast) ease-out 0s;
   }
 
   .reverse {
@@ -72,5 +58,41 @@ export default css`
   .large.reverse ds-icon {
     margin-left: var(--spacing-outset-xs);
     margin-right: calc(-1 * var(--spacing-outset-xxs));
+  }
+
+  .raised {
+    background-color: var(--color-primary-pure);
+    color: var(--color-neutral-high-light);
+  }
+
+  .outline {
+    background: none;
+    border: var(--border-width-thin) solid var(--color-primary-pure);
+    color: var(--color-primary-pure);
+  }
+
+  .raised:hover {
+    background-color: var(--color-primary-medium);
+  }
+
+  .outline:hover {
+    background-color: var(--color-primary-pure);
+    border-color: var(--color-primary-pure);
+    color: var(--color-neutral-high-light);
+  }
+
+  .raised:active,
+  .outline:active {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+  }
+
+  button[disabled],
+  button[disabled]:hover,
+  button[disabled]:active {
+    cursor: default;
+    background-color: var(--color-neutral-high-medium);
+    color: var(--color-primary-pure);
+    border: none;
   }
 `;

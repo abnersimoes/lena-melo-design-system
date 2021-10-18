@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "lena-melo-design-tokens": "^1.0.9",
+    "lena-melo-design-tokens": "^1.0.10",
     "lit": "^2.0.2"
   },
   "devDependencies": {

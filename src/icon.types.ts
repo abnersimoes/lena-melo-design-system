@@ -1,4 +1,5 @@
 export enum IconName {
+  None = 'none',
   _360 = '360',
   Search = 'search',
   Home = 'home',
