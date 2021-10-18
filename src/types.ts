@@ -1,4 +1,4 @@
-export { IconNames } from './icon.types';
+export { IconName } from './icon.types';
 
 export enum Size {
   Small = 'small',

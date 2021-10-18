@@ -14,13 +14,22 @@ export class Button extends LitElement {
 
   @property({ type: Boolean }) disabled = false;
 
+  @property({ type: Types.IconName }) icon = undefined;
+
+  @property({ type: Boolean }) iconRight = false;
+
   render() {
     return html`
       <button
         @click="${this._handleClick}"
         ?disabled=${this.disabled}
-        class=${clsx(this.size, { outline: this.outline })}
+        class=${clsx(this.size, {
+          outline: this.outline,
+          reverse: this.iconRight,
+        })}
       >
+        ${this.icon &&
+        html` <ds-icon .name=${this.icon} .size=${this.size}></ds-icon>`}
         <slot></slot>
       </button>
     `;

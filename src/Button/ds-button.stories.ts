@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { Story } from '../../stories/types';
 import * as Types from '../types';
 import './ds-button';
@@ -7,6 +6,14 @@ import './ds-button';
 export default {
   title: 'Components/Button',
   component: 'ds-button',
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Material Icon: https://fonts.google.com/icons?selected=Material+Icons',
+      },
+    },
+  },
   argTypes: {
     onClick: {
       table: { category: 'Events' },
@@ -35,14 +42,35 @@ export default {
       defaultValue: false,
       description: 'Defines if the button is disabled',
     },
+    icon: {
+      table: { category: 'Semantics' },
+      description: 'Defines the a icon for render into button',
+      control: { type: 'select', options: Object.values(Types.IconName) },
+      defaultValue: undefined,
+    },
+    iconRight: {
+      table: { category: 'Semantics' },
+      description: 'Defines the icon position',
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    label: {
+      table: { category: 'Semantics' },
+      control: { type: 'text' },
+      defaultValue: 'Button Component',
+      description: 'Defines the button label',
+    },
   },
 };
 
 interface ArgTypes {
   onClick: Function;
-  size?: Types.Size;
-  outline?: boolean;
-  disabled?: boolean;
+  size: Types.Size;
+  outline: boolean;
+  disabled: boolean;
+  label: string;
+  icon: Types.IconName;
+  iconRight: boolean;
 }
 
 const Template: Story<ArgTypes> = ({
@@ -50,14 +78,19 @@ const Template: Story<ArgTypes> = ({
   size,
   outline,
   disabled,
+  label,
+  icon,
+  iconRight,
 }: ArgTypes) => html`
   <ds-button
     @on-click=${onClick}
-    size=${ifDefined(size)}
+    size=${size}
+    icon=${icon}
+    ?iconRight=${iconRight}
     ?outline=${outline}
     ?disabled=${disabled}
   >
-    Button
+    ${label}
   </ds-button>
 `;
 

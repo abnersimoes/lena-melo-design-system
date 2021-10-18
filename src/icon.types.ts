@@ -1,4 +1,4 @@
-export enum IconNames {
+export enum IconName {
   _360 = '360',
   Search = 'search',
   Home = 'home',

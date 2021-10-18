@@ -2,7 +2,7 @@ import { css } from 'lit';
 
 export default css`
   :host {
-    display: block;
+    display: flex;
   }
 
   span {
@@ -32,6 +32,6 @@ export default css`
   }
 
   .large {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
   }
 `;

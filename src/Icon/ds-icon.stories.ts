@@ -6,12 +6,20 @@ import './ds-icon';
 export default {
   title: 'Components/Icon',
   component: 'ds-icon',
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Material Icon: https://fonts.google.com/icons?selected=Material+Icons',
+      },
+    },
+  },
   argTypes: {
     name: {
       table: { category: 'Semantics' },
       description: 'Defines the icon by name',
-      control: { type: 'select', options: Object.values(Types.IconNames) },
-      defaultValue: Types.IconNames.Help,
+      control: { type: 'select', options: Object.values(Types.IconName) },
+      defaultValue: Types.IconName.Help,
     },
     size: {
       table: { category: 'Appearance' },
@@ -23,7 +31,7 @@ export default {
 };
 
 interface ArgTypes {
-  name: Types.IconNames;
+  name: Types.IconName;
   size: Types.Size;
 }
 
