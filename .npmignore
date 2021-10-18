@@ -1,0 +1,15 @@
+.DS_Store
+.git
+.gitignore
+.editorconfig
+LICENSE
+web-dev-server.config.mjs
+web-test-runner.config.mjs
+
+.storybook
+.vscode
+coverage
+demo
+stories
+src
+
