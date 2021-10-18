@@ -18,6 +18,13 @@ export class Button extends LitElement {
 
   @property({ type: Boolean }) iconRight = false;
 
+  renderIcon() {
+    if (this.icon && this.icon !== Types.IconName.None) {
+      return html`<ds-icon .name=${this.icon} .size=${this.size}></ds-icon>`;
+    }
+    return null;
+  }
+
   render() {
     return html`
       <button
@@ -29,9 +36,7 @@ export class Button extends LitElement {
           reverse: this.iconRight,
         })}
       >
-        ${this.icon &&
-        this.icon !== Types.IconName.None &&
-        html` <ds-icon .name=${this.icon} .size=${this.size}></ds-icon>`}
+        ${this.renderIcon()}
         <slot></slot>
       </button>
     `;

@@ -9,7 +9,7 @@ export class Icon extends LitElement {
 
   @property({ type: Types.Size }) size = Types.Size.Medium;
 
-  @property({ type: Types.IconName }) name = Types.IconName.Help;
+  @property({ type: Types.IconName }) name = Types.IconName.Home;
 
   render() {
     return html` <span class=${this.size}> ${this.name} </span> `;

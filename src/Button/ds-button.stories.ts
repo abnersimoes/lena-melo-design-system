@@ -46,7 +46,7 @@ export default {
       table: { category: 'Semantics' },
       description: 'Defines the a icon for render into button',
       control: { type: 'select', options: Object.values(Types.IconName) },
-      defaultValue: undefined,
+      defaultValue: Types.IconName.Home,
     },
     iconRight: {
       table: { category: 'Semantics' },

@@ -19,7 +19,7 @@ export default {
       table: { category: 'Semantics' },
       description: 'Defines the icon by name',
       control: { type: 'select', options: Object.values(Types.IconName) },
-      defaultValue: Types.IconName.Help,
+      defaultValue: Types.IconName.Home,
     },
     size: {
       table: { category: 'Appearance' },
