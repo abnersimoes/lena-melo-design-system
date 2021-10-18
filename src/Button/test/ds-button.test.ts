@@ -21,6 +21,7 @@ describe('Button', () => {
 
     expect(element).to.exist;
     expect(element).to.have.class('medium');
+    expect(element).to.have.class('raised');
     expect(element).not.to.haveOwnProperty('outline');
     expect(component.textContent).to.equal('Foo bar');
   });
@@ -30,11 +31,24 @@ describe('Button', () => {
       html`<ds-button size="large" outline disabled>Foo bar</ds-button>`
     );
     const element = component.shadowRoot!.querySelector('button');
+    const icon = component.shadowRoot!.querySelector('ds-icon');
 
+    expect(icon).not.to.exist;
     expect(component.size).to.equal('large');
     expect(element).to.have.class('large');
     expect(element).to.have.class('outline');
     expect(element).to.have.property('disabled', true);
+  });
+
+  it('should be render a button with icon on right side', async () => {
+    const component = await fixture<Button>(
+      html`<ds-button icon="home" iconRight>Foo bar</ds-button>`
+    );
+    const element = component.shadowRoot!.querySelector('button');
+    const icon = component.shadowRoot!.querySelector('ds-icon');
+
+    expect(icon).to.exist;
+    expect(element).to.have.class('reverse');
   });
 
   it('should be calls _handleClick when a button is clicked', async () => {
