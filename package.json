@@ -19,6 +19,7 @@
     "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook"
   },
   "dependencies": {
+    "@open-wc/dedupe-mixin": "^1.3.0",
     "clsx": "^1.1.1",
     "lena-melo-design-tokens": "^1.0.10",
     "lit": "^2.0.2"

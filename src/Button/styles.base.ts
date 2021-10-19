@@ -9,15 +9,13 @@ export default css`
     font-family: var(--asset-font-regular-name);
     font-weight: var(--font-weight-bold);
     border-radius: var(--border-radius-sm);
+    background: none;
     border: 0;
+    color: var(--color-primary-pure);
     cursor: pointer;
     display: flex;
     align-items: center;
     transition: all var(--motion-duration-level-little-fast) ease-out 0s;
-  }
-
-  .reverse {
-    flex-direction: row-reverse;
   }
 
   .small {
@@ -38,53 +36,34 @@ export default css`
     padding: 0 var(--spacing-inset-md);
   }
 
-  .small ds-icon {
-    margin-left: calc(-1 * var(--spacing-outset-xxxs));
-    margin-right: var(--spacing-outset-xxs);
-  }
-
-  .medium ds-icon,
-  .large ds-icon {
-    margin-left: calc(-1 * var(--spacing-outset-xxs));
-    margin-right: var(--spacing-outset-xs);
-  }
-
-  .small.reverse ds-icon {
-    margin-left: var(--spacing-outset-xxs);
-    margin-right: calc(-1 * var(--spacing-outset-xxxs));
-  }
-
-  .medium.reverse ds-icon,
-  .large.reverse ds-icon {
-    margin-left: var(--spacing-outset-xs);
-    margin-right: calc(-1 * var(--spacing-outset-xxs));
-  }
-
   .raised {
     background-color: var(--color-primary-pure);
     color: var(--color-neutral-high-light);
   }
 
   .outline {
-    background: none;
     border: var(--border-width-thin) solid var(--color-primary-pure);
-    color: var(--color-primary-pure);
   }
 
-  .raised:hover {
+  .raised:hover,
+  .outline:hover {
     background-color: var(--color-primary-medium);
+    color: var(--color-neutral-high-light);
   }
 
   .outline:hover {
-    background-color: var(--color-primary-pure);
-    border-color: var(--color-primary-pure);
-    color: var(--color-neutral-high-light);
+    border-color: var(--color-primary-medium);
+  }
+
+  button:active {
+    color: var(--color-primary-medium);
   }
 
   .raised:active,
   .outline:active {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
+    transition-duration: 0s;
   }
 
   button[disabled],

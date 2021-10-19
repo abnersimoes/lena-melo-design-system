@@ -4,16 +4,8 @@ import * as Types from '../types';
 import './ds-button';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Button/Button',
   component: 'ds-button',
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Material Icon: https://fonts.google.com/icons?selected=Material+Icons',
-      },
-    },
-  },
   argTypes: {
     onClick: {
       table: { category: 'Events' },
@@ -30,29 +22,23 @@ export default {
       defaultValue: Types.Size.Medium,
       description: 'Defines the size of the button',
     },
+    raised: {
+      table: { category: 'Appearance' },
+      control: { type: 'boolean' },
+      defaultValue: true,
+      description: 'Defines the button has a fill',
+    },
     outline: {
       table: { category: 'Appearance' },
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'Defines the button has a border or a fill',
+      description: 'Defines the button has a border',
     },
     disabled: {
       table: { category: 'Semantics' },
       control: { type: 'boolean' },
       defaultValue: false,
       description: 'Defines if the button is disabled',
-    },
-    icon: {
-      table: { category: 'Semantics' },
-      description: 'Defines the a icon for render into button',
-      control: { type: 'select', options: Object.values(Types.IconName) },
-      defaultValue: Types.IconName.Home,
-    },
-    iconRight: {
-      table: { category: 'Semantics' },
-      description: 'Defines the icon position',
-      control: { type: 'boolean' },
-      defaultValue: false,
     },
     label: {
       table: { category: 'Semantics' },
@@ -63,30 +49,27 @@ export default {
   },
 };
 
-interface ArgTypes {
+export interface ButtonArgTypes {
   onClick: Function;
   size: Types.Size;
+  raised: boolean;
   outline: boolean;
   disabled: boolean;
   label: string;
-  icon: Types.IconName;
-  iconRight: boolean;
 }
 
-const Template: Story<ArgTypes> = ({
+const Template: Story<ButtonArgTypes> = ({
   onClick,
   size,
+  raised,
   outline,
   disabled,
   label,
-  icon,
-  iconRight,
-}: ArgTypes) => html`
+}: ButtonArgTypes) => html`
   <ds-button
     @on-click=${onClick}
     size=${size}
-    icon=${icon}
-    ?iconRight=${iconRight}
+    ?raised=${raised}
     ?outline=${outline}
     ?disabled=${disabled}
   >
