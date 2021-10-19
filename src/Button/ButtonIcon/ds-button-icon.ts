@@ -18,14 +18,6 @@ export class ButtonIcon extends ButtonMixin(ButtonBase) {
 
   @property({ type: Types.IconName }) iconRight = Types.IconName.None;
 
-  _hasIconLeft(): boolean {
-    return this.iconLeft !== Types.IconName.None;
-  }
-
-  _hasIconRight(): boolean {
-    return this.iconRight !== Types.IconName.None;
-  }
-
   render() {
     return html`
       <button
@@ -39,7 +31,7 @@ export class ButtonIcon extends ButtonMixin(ButtonBase) {
         <ds-icon
           .name=${this.iconLeft}
           .size=${this.size}
-          class=${clsx('icon-left', { 'has-icon': this._hasIconLeft() })}
+          class=${clsx('icon-left', this.iconLeft)}
         ></ds-icon>
 
         <slot></slot>
@@ -47,7 +39,7 @@ export class ButtonIcon extends ButtonMixin(ButtonBase) {
         <ds-icon
           .name=${this.iconRight}
           .size=${this.size}
-          class=${clsx('icon-right', { 'has-icon': this._hasIconRight() })}
+          class=${clsx('icon-right', this.iconRight)}
         ></ds-icon>
       </button>
     `;

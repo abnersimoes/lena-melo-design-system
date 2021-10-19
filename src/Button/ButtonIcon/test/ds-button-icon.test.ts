@@ -30,8 +30,8 @@ describe('Button Icon', () => {
     expect(element).not.to.have.class('raised');
     expect(element).to.have.property('disabled', false);
     expect(component.textContent).to.equal('Foo bar');
-    expect(iconLeft).not.to.have.class('has-icon');
-    expect(iconRight).not.to.have.class('has-icon');
+    expect(iconLeft).to.have.class('none');
+    expect(iconRight).to.have.class('none');
   });
 
   it('should be render a large outline disabled button with icons by properties', async () => {
@@ -42,7 +42,7 @@ describe('Button Icon', () => {
         raised
         disabled
         iconLeft="home"
-        iconRight="home"
+        iconRight="help"
         >Foo bar</ds-button-icon
       >`
     );
@@ -55,8 +55,10 @@ describe('Button Icon', () => {
     expect(element).to.have.class('outline');
     expect(element).to.have.class('raised');
     expect(element).to.have.property('disabled', true);
-    expect(iconLeft).to.have.class('has-icon');
-    expect(iconRight).to.have.class('has-icon');
+    expect(iconLeft).not.to.have.class('none');
+    expect(iconRight).not.to.have.class('none');
+    expect(iconLeft).to.have.class('home');
+    expect(iconRight).to.have.class('help');
   });
 
   it('should be calls _handleClick when a button is clicked', async () => {

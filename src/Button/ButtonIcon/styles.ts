@@ -1,12 +1,8 @@
 import { css } from 'lit';
 
 export default css`
-  ds-icon {
+  ds-icon.none {
     display: none;
-  }
-
-  ds-icon.has-icon {
-    display: flex;
   }
 
   .small .icon-left {
