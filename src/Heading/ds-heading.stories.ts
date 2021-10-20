@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { Story } from '../../stories/types';
 import * as Types from '../types';
 import './ds-heading';
@@ -27,15 +26,12 @@ export default {
 };
 
 interface ArgTypes {
-  size?: Types.Size;
-  weight?: Types.Weight;
-  priority?: Types.HeadingPriority;
+  size: Types.Size;
+  priority: Types.HeadingPriority;
 }
 
 const Template: Story<ArgTypes> = ({ size, priority }: ArgTypes) => html`
-  <ds-heading size=${ifDefined(size)} priority=${ifDefined(priority)}>
-    Heading
-  </ds-heading>
+  <ds-heading size=${size} priority=${priority}> Heading </ds-heading>
 `;
 
 export const Heading = Template.bind({});

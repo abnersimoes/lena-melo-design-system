@@ -1,44 +1,42 @@
 import { html } from 'lit';
-import { fixture, expect, assert } from '@open-wc/testing';
-import { Heading } from '../ds-heading';
+import { fixture, expect, elementUpdated } from '@open-wc/testing';
+import * as Types from '../../types';
+import { Heading } from '..';
+import '../ds-heading';
 
 describe('Heading', () => {
-  it('should be defined and passes the a11y audit', async () => {
-    const component = await fixture<Heading>(
-      html`<ds-heading>Foo bar</ds-heading>`
-    );
+  let component: Heading;
+  let elementDefault: HTMLElement;
 
-    assert.instanceOf(component, Heading);
-    expect(component).shadowDom.to.be.accessible();
+  beforeEach(async () => {
+    component = await fixture<Heading>(html`<ds-heading>Foo bar</ds-heading>`);
+    elementDefault = component.shadowRoot!.querySelector('span')!;
   });
 
   it('should be render a medium heading span by default', async () => {
-    const component = await fixture<Heading>(
-      html`<ds-heading>Foo bar</ds-heading>`
-    );
-    const element = component.shadowRoot!.querySelector('span');
-
-    expect(element).to.exist;
-    expect(element).to.have.class('medium');
+    expect(elementDefault).to.exist;
+    expect(elementDefault).to.have.class('medium');
     expect(component.textContent).to.equal('Foo bar');
   });
 
   it('should be render a large heading by size property', async () => {
-    const component = await fixture<Heading>(
-      html`<ds-heading size="large">Foo bar</ds-heading>`
-    );
-    const element = component.shadowRoot!.querySelector('span');
+    component.size = Types.Size.Large;
+
+    await elementUpdated(component);
 
     expect(component.size).to.equal('large');
-    expect(element).to.have.class('large');
+    expect(elementDefault).to.have.class('large');
   });
 
   it('should be render a h2 by priority property', async () => {
-    const component = await fixture<Heading>(
-      html`<ds-heading priority="2">Foo bar</ds-heading>`
-    );
-    const element = component.shadowRoot!.querySelector('h2');
+    component.priority = Types.HeadingPriority.h2;
 
-    expect(element).to.exist;
+    await elementUpdated(component);
+
+    expect(component.shadowRoot!.querySelector('h2')).to.exist;
+  });
+
+  it('should be defined and passes the a11y audit', async () => {
+    expect(component).shadowDom.to.be.accessible();
   });
 });
