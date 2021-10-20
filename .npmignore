@@ -17,7 +17,14 @@ tsconfig.json
 /stories
 /.tmp
 
-src/**/test
-src/**/*/test
-src/**/*.stories.ts
-src/**/*/*.stories.ts
+/src/**/test
+/src/**/*/test
+/src/**/*.stories.ts
+/src/**/*/*.stories.ts
+
+/dist/src/stories
+/dist/src/**/test
+/dist/src/**/*/test
+/dist/src/**/*.stories.d.ts
+/dist/src/**/*/*.stories.js
+/dist/src/**/*/*.stories.js.map
