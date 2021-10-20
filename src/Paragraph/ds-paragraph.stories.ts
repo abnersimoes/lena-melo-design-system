@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { Story } from '../../stories/types';
 import * as Types from '../types';
 import './ds-paragraph';
@@ -18,11 +17,11 @@ export default {
 };
 
 interface ArgTypes {
-  size?: Types.Size;
+  size: Types.Size;
 }
 
 const Template: Story<ArgTypes> = ({ size }: ArgTypes) => html`
-  <ds-paragraph size=${ifDefined(size)}>Paragraph</ds-paragraph>
+  <ds-paragraph size=${size}>Paragraph</ds-paragraph>
 `;
 
 export const Paragraph = Template.bind({});
