@@ -1,14 +1,23 @@
 .DS_Store
+*.DS_Store
+**/*.DS_Store
 .git
 .gitignore
 .editorconfig
-LICENSE
 web-dev-server.config.mjs
 web-test-runner.config.mjs
+tsconfig.json
 
-.storybook
-.vscode
-coverage
-demo
-stories
+/node_modules
+/npm-debug.log
+/.storybook
+/.vscode
+/coverage
+/demo
+/stories
+/.tmp
 
+src/**/test
+src/**/*/test
+src/**/*.stories.ts
+src/**/*/*.stories.ts

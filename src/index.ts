@@ -1,5 +1,5 @@
-import './Button/ds-button';
-import './ButtonIcon/ds-button-icon';
-import './Heading/ds-heading';
-import './Icon/ds-icon';
-import './Paragraph/ds-paragraph';
+export { Button } from './Button';
+export { ButtonIcon } from './Button/ButtonIcon';
+export { Heading } from './Heading';
+export { Icon } from './Icon';
+export { Paragraph } from './Paragraph';
