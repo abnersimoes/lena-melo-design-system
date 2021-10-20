@@ -1,5 +1,4 @@
-import './Paragraph/ds-paragraph';
+import './Button/ds-button';
 import './Heading/ds-heading';
 import './Icon/ds-icon';
-
-export { Button } from './Button/ds-button';
+import './Paragraph/ds-paragraph';

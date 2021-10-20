@@ -1,21 +1,20 @@
-import { expect, fixture, assert } from '@open-wc/testing';
+import { expect, fixture, elementUpdated } from '@open-wc/testing';
 import { html } from 'lit';
 import sinon from 'sinon';
-import { Button } from '../ds-button';
+import * as Types from '../../types';
+import '../ds-button';
 import { ButtonBase } from '../ds-button.base';
 
 describe('Button', () => {
-  it('should be button defined and passes the a11y audit', async () => {
-    const component = await fixture(html`<ds-button>Foo bar</ds-button>`);
+  let component: ButtonBase;
+  let element: HTMLElement;
 
-    assert.instanceOf(component, Button);
-    expect(component).shadowDom.to.be.accessible();
+  beforeEach(async () => {
+    component = await fixture<ButtonBase>(html`<ds-button>Foo bar</ds-button>`);
+    element = component.shadowRoot!.querySelector('button')!;
   });
 
   it('should be render a medium button by default', async () => {
-    const component = await fixture(html`<ds-button>Foo bar</ds-button>`);
-    const element = component.shadowRoot!.querySelector('button');
-
     expect(element).to.exist;
     expect(element).to.have.class('medium');
     expect(element).not.to.have.class('outline');
@@ -25,10 +24,12 @@ describe('Button', () => {
   });
 
   it('should be render a large outline disabled button by properties', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button size="large" outline raised disabled>Foo bar</ds-button>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
+    component.size = Types.Size.Large;
+    component.outline = true;
+    component.raised = true;
+    component.disabled = true;
+
+    await elementUpdated(component);
 
     expect(component.size).to.equal('large');
     expect(element).to.have.class('large');
@@ -38,10 +39,6 @@ describe('Button', () => {
   });
 
   it('should be calls _handleClick when a button is clicked', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button>Foo bar</ds-button>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
 
@@ -54,12 +51,11 @@ describe('Button', () => {
   });
 
   it('should be not calls _handleClick when a disabled button is clicked', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button disabled>Foo bar</ds-button>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
+
+    component.disabled = true;
+    await elementUpdated(component);
 
     component.requestUpdate();
     await component.updateComplete;
@@ -67,5 +63,9 @@ describe('Button', () => {
     element?.click();
 
     expect(handleClickStub).to.have.callCount(0);
+  });
+
+  it('should be button defined and passes the a11y audit', async () => {
+    expect(component).shadowDom.to.be.accessible();
   });
 });
