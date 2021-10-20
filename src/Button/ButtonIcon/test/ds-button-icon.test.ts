@@ -1,27 +1,26 @@
-import { expect, fixture, assert } from '@open-wc/testing';
+import { expect, fixture, elementUpdated } from '@open-wc/testing';
 import { html } from 'lit';
 import sinon from 'sinon';
+import * as Types from '../../../types';
 import { ButtonBase } from '../../ds-button.base';
-import { ButtonIcon } from '../ds-button-icon';
+import '../ds-button-icon';
 
 describe('Button Icon', () => {
-  it('should be button icon defined and passes the a11y audit', async () => {
-    const component = await fixture(
+  let component: ButtonBase;
+  let element: HTMLElement;
+  let iconLeft: HTMLElement;
+  let iconRight: HTMLElement;
+
+  beforeEach(async () => {
+    component = await fixture<ButtonBase>(
       html`<ds-button-icon>Foo bar</ds-button-icon>`
     );
-
-    assert.instanceOf(component, ButtonIcon);
-    expect(component).shadowDom.to.be.accessible();
+    element = component.shadowRoot!.querySelector('button')!;
+    iconLeft = component.shadowRoot!.querySelector('.icon-left')!;
+    iconRight = component.shadowRoot!.querySelector('.icon-right')!;
   });
 
   it('should be render a medium button with hide icons by default', async () => {
-    const component = await fixture(
-      html`<ds-button-icon>Foo bar</ds-button-icon>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
-    const iconLeft = component.shadowRoot!.querySelector('.icon-left');
-    const iconRight = component.shadowRoot!.querySelector('.icon-right');
-
     expect(element).to.exist;
     expect(iconLeft).to.exist;
     expect(iconRight).to.exist;
@@ -35,20 +34,16 @@ describe('Button Icon', () => {
   });
 
   it('should be render a large outline disabled button with icons by properties', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button-icon
-        size="large"
-        outline
-        raised
-        disabled
-        iconLeft="home"
-        iconRight="help"
-        >Foo bar</ds-button-icon
-      >`
-    );
-    const element = component.shadowRoot!.querySelector('button');
-    const iconLeft = component.shadowRoot!.querySelector('.icon-left');
-    const iconRight = component.shadowRoot!.querySelector('.icon-right');
+    component.size = Types.Size.Large;
+    component.outline = true;
+    component.raised = true;
+    component.disabled = true;
+    // @ts-ignore
+    component.iconLeft = Types.IconName.Home;
+    // @ts-ignore
+    component.iconRight = Types.IconName.Help;
+
+    await elementUpdated(component);
 
     expect(component.size).to.equal('large');
     expect(element).to.have.class('large');
@@ -62,10 +57,6 @@ describe('Button Icon', () => {
   });
 
   it('should be calls _handleClick when a button is clicked', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button-icon>Foo bar</ds-button-icon>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
 
@@ -78,12 +69,11 @@ describe('Button Icon', () => {
   });
 
   it('should be not calls _handleClick when a disabled button is clicked', async () => {
-    const component = await fixture<ButtonBase>(
-      html`<ds-button-icon disabled>Foo bar</ds-button-icon>`
-    );
-    const element = component.shadowRoot!.querySelector('button');
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
+
+    component.disabled = true;
+    await elementUpdated(component);
 
     component.requestUpdate();
     await component.updateComplete;
@@ -91,5 +81,9 @@ describe('Button Icon', () => {
     element?.click();
 
     expect(handleClickStub).to.have.callCount(0);
+  });
+
+  it('should be button icon defined and passes the a11y audit', async () => {
+    expect(component).shadowDom.to.be.accessible();
   });
 });
