@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { Story } from '../../../stories/types';
 import * as Types from '../../types';
+import '../../Icon/ds-icon';
 import './ds-button-link';
 
 export default {
@@ -61,4 +62,20 @@ const Template: Story<ArgTypes> = ({
   </ds-button-link>
 `;
 
+const TemplateWithIcons: Story<ArgTypes> = ({
+  to,
+  size,
+  raised,
+  outline,
+  label,
+}: ArgTypes) => html`
+  <ds-button-link to=${to} size=${size} ?raised=${raised} ?outline=${outline}>
+    <ds-icon slot="icon-left" name="navigate_before" size=${size}></ds-icon>
+    ${label}
+    <ds-icon slot="icon-right" name="navigate_next" size=${size}></ds-icon>
+  </ds-button-link>
+`;
+
 export const ButtonLink = Template.bind({});
+
+export const ButtonLinkWithIcons = TemplateWithIcons.bind({});

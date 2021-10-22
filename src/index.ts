@@ -1,5 +1,5 @@
 export { Button } from './Button';
-export { ButtonIcon } from './Button/ButtonIcon';
+export { ButtonLink } from './Button/ButtonLink';
 export { Heading } from './Heading';
 export { Icon } from './Icon';
 export { Paragraph } from './Paragraph';
