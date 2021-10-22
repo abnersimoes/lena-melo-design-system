@@ -20,16 +20,20 @@
     <script type="module">
       import { html, render } from 'lit';
       import '../dist/src/Button/ds-button';
-
-      const foo = 'bar';
+      import '../dist/src/Button/ButtonLink/ds-button-link';
+      import '../dist/src/Icon/ds-icon';
 
       render(
         html`
-          <ds-button @on-click=${() => console.log(foo)}>
-            some light-dom small
-          </ds-button>
+          <ds-button-link to="/foo" raised>
+            <ds-icon slot="icon-left" name="home"></ds-icon>
+            Button
+          </ds-button-link>
 
-          <span class="material-icons">arrow_back</span>
+          <ds-button-link to="/foo" raised>
+            Button Link
+            <ds-icon slot="icon-right" name="home"></ds-icon>
+          </ds-button-link>
         `,
         document.querySelector('#demo')
       );

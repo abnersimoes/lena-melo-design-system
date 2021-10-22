@@ -76,4 +76,38 @@ export default css`
     color: var(--color-primary-pure);
     border: none;
   }
+
+  ds-icon.none {
+    display: none;
+  }
+
+  .small .icon-left {
+    margin-left: calc(-1 * var(--spacing-outset-xxxs));
+    margin-right: var(--spacing-outset-xxs);
+  }
+
+  .medium .icon-left {
+    margin-left: calc(-1 * var(--spacing-outset-xxs));
+    margin-right: var(--spacing-outset-xs);
+  }
+
+  .large .icon-left {
+    margin-left: calc(-1 * var(--spacing-outset-xxs));
+    margin-right: var(--spacing-outset-xs);
+  }
+
+  .small .icon-right {
+    margin-left: var(--spacing-outset-xxs);
+    margin-right: calc(-1 * var(--spacing-outset-xxxs));
+  }
+
+  .medium .icon-right {
+    margin-left: var(--spacing-outset-xs);
+    margin-right: calc(-1 * var(--spacing-outset-xxs));
+  }
+
+  .large .icon-right {
+    margin-left: var(--spacing-outset-xs);
+    margin-right: calc(-1 * var(--spacing-outset-xxs));
+  }
 `;

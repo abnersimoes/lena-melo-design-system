@@ -22,7 +22,15 @@ export class Button extends ButtonMixin(ButtonBase) {
           outline: this.outline,
         })}
       >
+        <div class="icon-left">
+          <slot name="icon-left"></slot>
+        </div>
+
         <slot></slot>
+
+        <div class="icon-right">
+          <slot name="icon-right"></slot>
+        </div>
       </button>
     `;
   }
