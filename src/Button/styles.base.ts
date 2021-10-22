@@ -5,7 +5,8 @@ export default css`
     display: block;
   }
 
-  button {
+  button,
+  a {
     font-family: var(--asset-font-regular-name);
     font-weight: var(--font-weight-bold);
     border-radius: var(--border-radius-sm);
@@ -55,7 +56,8 @@ export default css`
     border-color: var(--color-primary-medium);
   }
 
-  button:active {
+  button:active,
+  a:active {
     color: var(--color-primary-medium);
   }
 

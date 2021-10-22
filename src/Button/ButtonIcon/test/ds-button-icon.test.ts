@@ -37,6 +37,7 @@ describe('Button Icon', () => {
     component.size = Types.Size.Large;
     component.outline = true;
     component.raised = true;
+    // @ts-ignore
     component.disabled = true;
     // @ts-ignore
     component.iconLeft = Types.IconName.Home;
@@ -71,7 +72,7 @@ describe('Button Icon', () => {
   it('should be not calls _handleClick when a disabled button is clicked', async () => {
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
-
+    // @ts-ignore
     component.disabled = true;
     await elementUpdated(component);
 

@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import clsx from 'clsx';
 import { ButtonMixin } from './ds-button.mixin';
 import { ButtonBase } from './ds-button.base';
@@ -8,6 +9,8 @@ export class Button extends ButtonMixin(ButtonBase) {
   static get styles() {
     return stylesBase;
   }
+
+  @property({ type: Boolean }) disabled = false;
 
   render() {
     return html`

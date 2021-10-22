@@ -27,6 +27,7 @@ describe('Button', () => {
     component.size = Types.Size.Large;
     component.outline = true;
     component.raised = true;
+    // @ts-ignore
     component.disabled = true;
 
     await elementUpdated(component);
@@ -53,7 +54,7 @@ describe('Button', () => {
   it('should be not calls _handleClick when a disabled button is clicked', async () => {
     // @ts-ignore
     const handleClickStub = sinon.stub(component, '_handleClick');
-
+    // @ts-ignore
     component.disabled = true;
     await elementUpdated(component);
 

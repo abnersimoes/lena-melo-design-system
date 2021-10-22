@@ -8,6 +8,4 @@ export class ButtonBase extends LitElement {
   @property({ type: Boolean }) outline = false;
 
   @property({ type: Boolean }) raised = false;
-
-  @property({ type: Boolean }) disabled = false;
 }
