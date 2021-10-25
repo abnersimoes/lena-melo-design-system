@@ -19,13 +19,15 @@ describe('Heading', () => {
     expect(component.textContent).to.equal('Foo bar');
   });
 
-  it('should be render a large heading by size property', async () => {
+  it('should be render a large marginless heading by size property', async () => {
     component.size = Types.Size.Large;
+    component.marginless = true;
 
     await elementUpdated(component);
 
     expect(component.size).to.equal('large');
     expect(elementDefault).to.have.class('large');
+    expect(elementDefault).to.have.class('marginless');
   });
 
   it('should be render a h2 by priority property', async () => {

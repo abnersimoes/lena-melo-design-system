@@ -13,6 +13,12 @@ export default {
       control: { type: 'radio', options: Object.values(Types.Size) },
       defaultValue: Types.Size.Medium,
     },
+    marginless: {
+      table: { category: 'Appearance' },
+      description: 'Defines if paragraph has margin',
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
     priority: {
       table: { category: 'Semantics' },
       description: 'Defines the semantic tag',
@@ -27,11 +33,26 @@ export default {
 
 interface ArgTypes {
   size: Types.Size;
+  marginless: boolean;
   priority: Types.HeadingPriority;
 }
 
-const Template: Story<ArgTypes> = ({ size, priority }: ArgTypes) => html`
-  <ds-heading size=${size} priority=${priority}> Heading </ds-heading>
+const Template: Story<ArgTypes> = ({
+  size,
+  priority,
+  marginless,
+}: ArgTypes) => html`
+  <div>
+    <ds-heading size=${size} priority=${priority} ?marginless=${marginless}>
+      Heading
+    </ds-heading>
+
+    <ds-paragraph size=${size}>
+      It was popularised in the 1960s with the release of Letraset sheets
+      containing Lorem Ipsum passages, and more recently with desktop publishing
+      software like Aldus PageMaker including versions of Lorem Ipsum.
+    </ds-paragraph>
+  </div>
 `;
 
 export const Heading = Template.bind({});

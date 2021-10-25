@@ -16,6 +16,8 @@ export class Heading extends LitElement {
   @property({ type: Types.HeadingPriority })
   priority = Types.HeadingPriority.default;
 
+  @property({ type: Boolean }) marginless = false;
+
   getTag() {
     if (this.priority && this.priority >= 1 && this.priority <= 6) {
       return `h${this.priority}`;
@@ -27,7 +29,9 @@ export class Heading extends LitElement {
     const tag = this.getTag();
 
     return html`
-      <${unsafeStatic(tag)} class=${clsx([this.size])}>
+      <${unsafeStatic(tag)} class=${clsx(this.size, {
+      marginless: this.marginless,
+    })}>
         <slot></slot>
       </${unsafeStatic(tag)}>
     `;

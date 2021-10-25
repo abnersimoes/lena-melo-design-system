@@ -21,13 +21,15 @@ describe('Paragraph', () => {
     expect(component.textContent).to.equal('Foo bar');
   });
 
-  it('should be render a large paragraph by size property', async () => {
+  it('should be render a large marginless paragraph by size property', async () => {
     component.size = Types.Size.Large;
+    component.marginless = true;
 
     await elementUpdated(component);
 
     expect(component.size).to.equal('large');
     expect(element).to.have.class('large');
+    expect(element).to.have.class('marginless');
   });
 
   it('should be defined and passes the a11y audit', async () => {
