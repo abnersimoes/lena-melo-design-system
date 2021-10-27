@@ -41,7 +41,8 @@ const Template: Story<ArgTypes> = ({ size, marginless }: ArgTypes) => html`
     <ds-paragraph size=${size} ?marginless=${marginless}>
       It was popularised in the 1960s with the release of Letraset sheets
       containing Lorem Ipsum passages, and more recently with desktop publishing
-      software like Aldus PageMaker including versions of Lorem Ipsum.
+      software like Aldus PageMaker including versions of
+      <a href="#">Lorem Ipsum</a>.
     </ds-paragraph>
   </div>
 `;

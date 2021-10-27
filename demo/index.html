@@ -10,7 +10,6 @@
       body {
         font-family: var(--asset-font-regular-name), Arial, sans-serif;
         font-weight: var(--asset-font-regular-weight);
-        color: var(--color-neutral-low-medium);
       }
     </style>
   </head>
@@ -19,19 +18,22 @@
 
     <script type="module">
       import { html, render } from 'lit';
+      import '../dist/src/Paragraph/ds-paragraph';
       import '../dist/src/Button/ds-button';
       import '../dist/src/Button/ButtonLink/ds-button-link';
       import '../dist/src/Icon/ds-icon';
 
       render(
         html`
+          <ds-paragraph>uuuh lala <a href="#">epa</a></ds-paragraph>
+
           <ds-button-link to="/foo" raised>
             <ds-icon slot="icon-left" name="home"></ds-icon>
             Button
           </ds-button-link>
 
           <ds-button-link to="/foo" raised>
-            Button Link
+            Baaautton Link
             <ds-icon slot="icon-right" name="home"></ds-icon>
           </ds-button-link>
         `,

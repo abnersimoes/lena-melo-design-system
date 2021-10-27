@@ -1,4 +1,4 @@
-import { ColorNeutralHighLight } from 'lena-melo-design-tokens/build/js/design-tokens';
+import { ColorNeutralHighLight } from 'lena-melo-design-tokens';
 
 export const parameters = {
   // layout: 'centered',

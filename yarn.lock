@@ -4693,10 +4693,10 @@ koa@^2.13.0:
     type-is "^1.6.16"
     vary "^1.1.2"
 
-lena-melo-design-tokens@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/lena-melo-design-tokens/-/lena-melo-design-tokens-1.0.13.tgz#f3ddf725b1168f9f1be0df495c2ae543268ee021"
-  integrity sha512-xwGi2Eht68mPhlPD1Qni9sZcjPiJdVanlmCklbojQEEUa1dJiV9XEv+p27xkheACHqe0xX0/S9nfDMV0xw1dmQ==
+lena-melo-design-tokens@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/lena-melo-design-tokens/-/lena-melo-design-tokens-1.0.17.tgz#83548abfaad403dd811a9ce94ac3be5ceeddd3fc"
+  integrity sha512-wfO6WbWiynq77n46dKuE9wMiXahgHygsJOhK2yq9Vv7UqeefhouBI9+RUvrz4XxfmH8tw+51FJzuhly5X8bYYw==
 
 leven@^3.1.0:
   version "3.1.0"

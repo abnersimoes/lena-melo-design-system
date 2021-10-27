@@ -1,4 +1,5 @@
 import { css } from 'lit';
+import { desktop } from '../helpers/breakpoints';
 
 export default css`
   :host {
@@ -15,17 +16,20 @@ export default css`
     margin-bottom: var(--spacing-outset-xxs);
   }
 
-  .medium {
+  .medium,
+  .large {
     font-size: var(--font-size-xs);
     margin-bottom: var(--spacing-outset-xs);
-  }
-
-  .large {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-outset-sm);
   }
 
   .marginless {
     margin: 0;
   }
+
+  ${desktop`
+    .large {
+      font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-outset-sm);
+    }
+  `}
 `;
