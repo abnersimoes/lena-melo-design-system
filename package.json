@@ -3,7 +3,7 @@
   "description": "Webcomponent ds-lena-melo following open-wc recommendations",
   "license": "MIT",
   "author": "Abner Simões",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
   "scripts": {
