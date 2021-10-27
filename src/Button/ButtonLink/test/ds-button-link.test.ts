@@ -31,7 +31,7 @@ describe('Button Icon', () => {
     expect(element).to.have.class('medium');
     expect(element).not.to.have.class('outline');
     expect(element).not.to.have.class('raised');
-    expect(element).to.have.property('href', 'http://localhost:8000/foo');
+    expect(element).to.have.property('href').contain('/foo');
     expect(component.textContent).to.string('bar');
   });
 
