@@ -11,31 +11,7 @@ export default css`
     margin: 0;
   }
 
-  a {
-    color: var(--color-primary-medium);
-  }
-
-  a:-webkit-any-link {
-    color: var(--color-primary-medium);
-  }
-
-  a:-moz-any-link {
-    color: var(--color-primary-medium);
-  }
-
-  a:any-link {
-    color: var(--color-primary-medium);
-  }
-
-  a:-webkit-any-link {
-    color: var(--color-primary-medium);
-  }
-
-  :-moz-any-link {
-    color: var(--color-primary-medium);
-  }
-
-  :any-link {
+  .paragraph a {
     color: var(--color-primary-medium);
   }
 

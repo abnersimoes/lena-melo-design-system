@@ -13,7 +13,7 @@ export class Paragraph extends LitElement {
 
   render() {
     return html`
-      <p class=${clsx(this.size, { marginless: this.marginless })}>
+      <p class=${clsx('paragraph', this.size, { marginless: this.marginless })}>
         <slot></slot>
       </p>
     `;
