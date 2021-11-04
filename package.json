@@ -16,7 +16,9 @@
     "test": "tsc && wtr --coverage",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
-    "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook"
+    "prestorybook:build": "rm -rf ./storybook-static && mkdir -p ./storybook-static/node_modules/lena-melo-design-tokens",
+    "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
+    "poststorybook:build": "cp -r ./node_modules/lena-melo-design-tokens ./storybook-static/node_modules && cp ./.storybook/favicon.ico ./storybook-static"
   },
   "dependencies": {
     "@open-wc/dedupe-mixin": "^1.3.0",

@@ -11,10 +11,6 @@ export default css`
     margin: 0;
   }
 
-  .paragraph a {
-    color: var(--color-primary-medium);
-  }
-
   .small {
     font-size: var(--font-size-xxxs);
     margin-bottom: var(--spacing-outset-xxs);
